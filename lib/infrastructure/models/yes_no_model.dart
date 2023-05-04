@@ -1,4 +1,6 @@
 
+import 'package:yesnoapp/domain/entities/message.dart';
+
 class YesNoModel {
     final String answer;
     final bool forced;
@@ -22,5 +24,9 @@ class YesNoModel {
         "image": image,
     };
 
-    // Message
+    Message toMessageEntity() => Message(
+      text: answer == 'yes' ? 'Si' : 'No', 
+      fromWho: FromWho.her,
+      imageUrl: image,
+    );
 }
